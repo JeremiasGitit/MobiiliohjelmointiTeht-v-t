@@ -36,6 +36,7 @@ class TaskViewModel : ViewModel() {
     fun filterDone() {
         tasks = tasks.filter { it.done }
     }
+    fun removeTask(id: Int) {
+        tasks = tasks.filter {it.id != id}
+    }
 }
-//Task(id = 1, title = "Compose UI", description = "First screen", priority = 1, dueDate = "2026-10-10", done = true),
-//Task(id = 2, title = "Compose UI", description = "First screen", priority = 1, dueDate = "2026-10-10", done = true)

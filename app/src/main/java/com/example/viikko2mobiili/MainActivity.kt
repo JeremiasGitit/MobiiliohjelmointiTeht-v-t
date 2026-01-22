@@ -34,101 +34,12 @@ import com.example.viikko2mobiili.screens.HomeScreen
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             Viikko2mobiiliTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) {
-                    HomeScreen()
-                }
+
+                    HomeScreen(modifier = Modifier.fillMaxSize().padding(16.dp))
+
             }
         }
     }
 }
-
-
-/*class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            Viikko2mobiiliTheme()  {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-        }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    /* Text(
-         text = "Hello $name!",
-         modifier = modifier
-     )*/
-}
-@Composable
-fun NameTextField(
-    name: String,
-    onNameChange: (String) -> Unit
-) {
-
-    OutlinedTextField(
-        value = name,
-        onValueChange = onNameChange,
-        label = {Text("Add task")},
-        modifier = Modifier
-            .padding(top = 16.dp)
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ParentComponent() {
-    var name by remember { mutableStateOf("") }
-    var taskList by remember { mutableStateOf(mockList) }
-
-    Column {
-        NameTextField(
-            name = name,
-            onNameChange = { name = it}
-        )
-        // Text(" $name")
-        Spacer(modifier = Modifier.height(height = 16.dp))
-        taskList.forEach {task ->
-            Text("${task.id} ${task.title} ${task.dueDate} ")
-        }
-
-        Row() {
-            Button(
-                onClick = {
-                    val newTask = Task(
-                        id = taskList.size + 1,
-                        title = name,
-                        description = "Description",
-                        priority = 1,
-                        dueDate = "2026-09-30",
-                        done = false,
-                    )
-                    taskList = addTask(taskList, newTask)
-
-                },
-                content = {
-                    Text("Add new task")
-                }
-            )
-            Button(
-                onClick = {
-                    taskList = taskList.sortedBy { it.dueDate }
-                },
-                content = {
-                    Text("Sort by due date")
-                }
-            )
-        }
-    }
-}
-*/

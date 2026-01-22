@@ -16,12 +16,3 @@ fun filterByDone (list: List<Task>): List<Task> {
     return list.filter { it.done }
 }
 
-/*fun toggleDone (list: List<Task>): List<Task> {
-    return list.map { task ->
-        if (task.id == taskId) {
-            task.copy(done = !task.done) // toggle done
-        } else {
-            task
-        }
-    }
-}*/
