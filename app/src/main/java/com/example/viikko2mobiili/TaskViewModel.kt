@@ -1,42 +1,65 @@
 package com.example.viikko2mobiili
 import androidx.lifecycle.ViewModel
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
-import com.example.viikko2mobiili.domain.Task
-import com.example.viikko2mobiili.domain.mockList
+import com.example.viikko2mobiili.model.Task
+import com.example.viikko2mobiili.model.mockList
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 
 
 class TaskViewModel : ViewModel() {
-    var tasks by mutableStateOf(listOf<Task>())
+    /*var tasks by mutableStateOf(listOf<Task>())
         private set
 
+    var selectedTask by mutableStateOf<Task?>(null)
+        private set*/
+
+    private val _tasks = MutableStateFlow<List<Task>>(emptyList())
+    val tasks = _tasks.asStateFlow()
+
+    private val _selectedTask = MutableStateFlow<Task?>(null)
+    val selectedTask = _selectedTask.asStateFlow()
+
     init {
-        tasks = mockList
+        _tasks.value = mockList
     }
 
     fun addTask(task: Task) {
-        tasks = tasks + task
+        _tasks.value  += task
     }
 
     fun toggleDone(id: Int) {
-        tasks = tasks.map {
+        _tasks.value = _tasks.value.map {
             if (it.id == id) it.copy(done = !it.done)
             else it
         }
     }
     fun sortByPriority() {
-        tasks = tasks.sortedBy { it.priority }
+        _tasks.value = _tasks.value.sortedBy { it.priority }
     }
 
     fun sortByDueDate() {
-        tasks = tasks.sortedBy { it.dueDate }
+        _tasks.value = _tasks.value.sortedBy { it.dueDate }
     }
 
     fun filterDone() {
-        tasks = tasks.filter { it.done }
+        _tasks.value = _tasks.value.filter { it.done }
     }
     fun removeTask(id: Int) {
-        tasks = tasks.filter {it.id != id}
+        _tasks.value = _tasks.value.filter {it.id != id}
+    }
+
+    fun selectTask(task: Task) {
+        _selectedTask.value = task
+    }
+
+    fun updateTask(updated: Task) {
+        _tasks.value = _tasks.value.map {
+            if (it.id == updated.id) updated else it
+        }
+        _selectedTask.value = null // sulje dialog päivityksen jälkeen
+    }
+
+    fun closeDialog() {
+        _selectedTask.value = null
     }
 }
