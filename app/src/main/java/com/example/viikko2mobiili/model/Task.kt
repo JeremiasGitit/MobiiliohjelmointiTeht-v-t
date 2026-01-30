@@ -1,4 +1,4 @@
-package com.example.viikko2mobiili.domain
+package com.example.viikko2mobiili.model
 
 data class Task(
     val id: Int,

@@ -1,4 +1,4 @@
-package com.example.viikko2mobiili.domain
+package com.example.viikko2mobiili.model
 
 fun addTask(list: List<Task>, newTask: Task): List<Task> {
     return list + newTask
