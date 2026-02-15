@@ -1,4 +1,4 @@
-package com.example.viikko2mobiili.view
+package com.example.data.view
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
@@ -8,8 +8,8 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.viikko2mobiili.TaskViewModel
-import com.example.viikko2mobiili.model.Task
+import com.example.data.TaskViewModel
+import com.example.data.model.Task
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Checkbox

@@ -1,4 +1,4 @@
-package com.example.viikko2mobiili
+package com.example.data
 
 import org.junit.Test
 
