@@ -1,7 +1,7 @@
-package com.example.viikko2mobiili
+package com.example.data
 import androidx.lifecycle.ViewModel
-import com.example.viikko2mobiili.model.Task
-import com.example.viikko2mobiili.model.mockList
+import com.example.data.model.Task
+import com.example.data.model.mockList
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 

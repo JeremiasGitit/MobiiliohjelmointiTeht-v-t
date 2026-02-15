@@ -1,4 +1,4 @@
-package com.example.viikko2mobiili.model
+package com.example.data.model
 
 data class Task(
     val id: Int,
