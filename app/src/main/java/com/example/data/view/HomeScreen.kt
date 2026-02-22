@@ -14,7 +14,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Checkbox
 
-
+/*
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
@@ -113,5 +113,5 @@ fun HomeScreen(
         }
     }
 }
-
+*/
 
