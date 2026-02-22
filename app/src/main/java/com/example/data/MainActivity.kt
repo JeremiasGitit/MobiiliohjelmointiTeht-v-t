@@ -17,8 +17,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             Viikko2mobiiliTheme {
 
-                    //HomeScreen(modifier = Modifier.fillMaxSize().padding(16.dp))
-                WeatherScreen()
+                    HomeScreen(modifier = Modifier.fillMaxSize().padding(16.dp))
+                //WeatherScreen()
             }
         }
     }
