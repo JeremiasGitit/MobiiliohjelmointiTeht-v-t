@@ -5,6 +5,11 @@ import java.io.FileInputStream
         alias(libs.plugins.android.application)
         alias(libs.plugins.kotlin.android)
         alias(libs.plugins.kotlin.compose)
+        alias(libs.plugins.ksp)
+
+        // KSP (Kotlin Symbol Processing) on kapt:in seuraaja
+        // Nopeampi ja modernimpi tapa generoida koodia käännösaikana
+        //id("com.google.devtools.ksp")
     }
 
     android {
@@ -115,8 +120,20 @@ import java.io.FileInputStream
 
         // Coil Compose (AsyncImage)
         implementation("io.coil-kt:coil-compose:2.7.0")
+
+        val room_version = "2.8.4"
+
+        implementation("androidx.room:room-runtime:$room_version")
+
+        // If this project uses any Kotlin source, use Kotlin Symbol Processing (KSP)
+        // See Add the KSP plugin to your project
+        ksp("androidx.room:room-compiler:$room_version")
+
+        // ViewModel ja Compose-integraatio
+        implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
+        implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
+
+        // Korutiinit (tausta-ajoa varten)
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     }
 
-    // AndroidManifest.xml - Lisää Internet-oikeus
-    //<uses-permission android:name="android.permission.INTERNET" />
-    //<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
