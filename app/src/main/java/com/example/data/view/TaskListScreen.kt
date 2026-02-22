@@ -13,7 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.data.TaskViewModel
+import com.example.data.viewModel.TaskViewModel
 import com.example.data.view.components.TaskItem
 import com.example.data.view.components.AddTaskDialog
 
